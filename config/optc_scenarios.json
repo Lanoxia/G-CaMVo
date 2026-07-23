@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "scenarios": [
+    {
+      "scenario_id": "optc-day3-malicious-upgrade",
+      "title": "Day 3 - Malicious Upgrade",
+      "date_local": "2019-09-25",
+      "start_local": "10:29:42",
+      "end_local": "14:24:03",
+      "time_basis": "Exercise-local clock; the public ground-truth PDF does not state a UTC offset.",
+      "reference_utc_offset_minutes": -240,
+      "clock_alignment_source": "Community best-effort event labels in data/raw/optc-labels/labels.csv encode timestamps with -04:00.",
+      "hosts": [
+        "SYSCLIENT0051",
+        "SYSCLIENT0351"
+      ],
+      "indicators": [
+        "notepadplus-sourceforge.net",
+        "microsoft.com",
+        "53.192.68.50",
+        "update.exe",
+        "cKfGW.exe",
+        "f.exe",
+        "lsass",
+        "lwabeat",
+        "myHbYXTpViwX.vbx",
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\RTqWaEHv"
+      ],
+      "source": "data/raw/optc-metadata/OpTCRedTeamGroundTruth.pdf, pages 6-7",
+      "activities": [
+        {
+          "activity_id": "day3-01",
+          "timestamp_local": "10:29:42",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Notepad++ update downloaded update.exe carrying a Meterpreter payload.",
+          "indicators": ["notepad++", "update.exe", "Meterpreter"]
+        },
+        {
+          "activity_id": "day3-02",
+          "timestamp_local": "10:31:08",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Meterpreter obtained SYSTEM through in-memory named-pipe impersonation.",
+          "indicators": ["Meterpreter", "named pipe", "SYSTEM"]
+        },
+        {
+          "activity_id": "day3-03",
+          "timestamp_local": "10:32:11",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Meterpreter opened a CMD shell and collected local-system information.",
+          "indicators": ["Meterpreter", "cmd"]
+        },
+        {
+          "activity_id": "day3-04",
+          "timestamp_local": "10:33:55",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "An ARP scan targeted 142.20.56.0/22.",
+          "indicators": ["ARP", "142.20.56.0/22"]
+        },
+        {
+          "activity_id": "day3-05",
+          "timestamp_local": "10:36:28",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Meterpreter enumerated installed applications.",
+          "indicators": ["Meterpreter", "applications"]
+        },
+        {
+          "activity_id": "day3-06",
+          "timestamp_local": "10:37:52",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Meterpreter enum_domain identified the domain controller.",
+          "indicators": ["enum_domain", "domain controller"]
+        },
+        {
+          "activity_id": "day3-07",
+          "timestamp_local": "10:38:35",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Meterpreter enum_shares identified host shares.",
+          "indicators": ["enum_shares", "shares"]
+        },
+        {
+          "activity_id": "day3-08",
+          "timestamp_local": "10:40:39",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "The payload migrated from PID 2712 cKfGW.exe to LSASS PID 568.",
+          "indicators": ["cKfGW.exe", "lsass", "2712", "568"]
+        },
+        {
+          "activity_id": "day3-09",
+          "timestamp_local": "10:44:56",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Mimikatz collected clear-text passwords and password hashes.",
+          "indicators": ["Mimikatz", "passwords", "hashes"]
+        },
+        {
+          "activity_id": "day3-10",
+          "timestamp_local": "10:48:43",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Meterpreter established autorun persistence with a TEMP script and HKLM Run key.",
+          "indicators": ["myHbYXTpViwX.vbx", "RTqWaEHv", "autorun"]
+        },
+        {
+          "activity_id": "day3-11",
+          "timestamp_local": "10:53:06",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "Timestomp changed MAC times for files created under Windows TEMP.",
+          "indicators": ["timestomp", "C:\\Windows\\TEMP"]
+        },
+        {
+          "activity_id": "day3-12",
+          "timestamp_local": "11:07:41",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "get_gui added admin to the local administrators and RDP groups.",
+          "indicators": ["get_gui", "admin", "RDP"]
+        },
+        {
+          "activity_id": "day3-13",
+          "timestamp_local": "11:23:31",
+          "hosts": ["SYSCLIENT0351"],
+          "description": "A second Notepad++ update downloaded update.exe and connected to the attacker server.",
+          "indicators": ["notepad++", "update.exe"]
+        },
+        {
+          "activity_id": "day3-14",
+          "timestamp_local": "11:24:30",
+          "hosts": ["SYSCLIENT0351"],
+          "description": "The second payload migrated from PID 1932 to lwabeat PID 1256.",
+          "indicators": ["lwabeat", "1932", "1256"]
+        },
+        {
+          "activity_id": "day3-15",
+          "timestamp_local": "13:42:05",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "The attacker used RDP to access the host.",
+          "indicators": ["RDP"]
+        },
+        {
+          "activity_id": "day3-16",
+          "timestamp_local": "14:24:03",
+          "hosts": ["SYSCLIENT0051"],
+          "description": "The malicious updater was run again.",
+          "indicators": ["update.exe"]
+        }
+      ]
+    }
+  ]
+}

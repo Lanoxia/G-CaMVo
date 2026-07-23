@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "seed": 17,
+  "api_key_file": "config/api_keys.env",
+  "pricing_verified": false,
+  "fixed_cheap_models": 2,
+  "dataset": {
+    "kind": "optc-real",
+    "attack_path": "data/raw/optc-day3/attack",
+    "benign_path": "data/raw/optc-benign",
+    "labels_path": "data/raw/optc-labels/labels.csv",
+    "scenario_manifest": "config/optc_scenarios.json",
+    "scenario_id": "optc-day3-malicious-upgrade",
+    "utc_offset_minutes": -240,
+    "padding_minutes": 10,
+    "correlation_window_minutes": 30,
+    "max_items": 30,
+    "negative_ratio": 1.0
+  },
+  "router": {
+    "embedding_dim": 64,
+    "confidence_threshold": 0.97,
+    "min_models": 2,
+    "warmup_rounds": 10,
+    "linucb_regularization": 1.0,
+    "exploration_alpha": 0.2,
+    "laplace_regularization": 1.0,
+    "confidence_method": "exact"
+  },
+  "graph": {
+    "regularization": 1.0,
+    "max_edge_weight": 2.0,
+    "max_total_neighbor_weight": 8.0
+  },
+  "trace": {
+    "risk_tolerance": 0.03,
+    "critical_risk_tolerance": 0.01,
+    "symmetric_reliability_prior": 0.68,
+    "reliability_prior_strength": 6.0,
+    "min_reliability_observations": 8,
+    "graph_strength": 0.8,
+    "min_transition_observations": 6.0,
+    "diversity_penalty": 0.45,
+    "abstain_when_risk_unmet": true
+  },
+  "budget": {
+    "hard_limit_usd": 5.0,
+    "max_provider_calls": 150,
+    "cache_dir": "artifacts/real_optc/responses",
+    "ledger_path": "artifacts/real_optc/budget.json",
+    "input_token_margin": 1.25
+  },
+  "models": [
+    {
+      "model_id": "provider/cheap",
+      "provider": "openai_compatible",
+      "provider_model": "REPLACE_WITH_PROVIDER_MODEL",
+      "base_url": "https://api.example.com/v1",
+      "api_key_env": "CUSTOM_LLM_API_KEY",
+      "input_usd_per_million": 1.0,
+      "output_usd_per_million": 4.0,
+      "prior_quality": 0.72,
+      "latency_ms": 500,
+      "timeout_seconds": 60,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "max_tokens_field": "max_tokens",
+      "response_format_json": true,
+      "extra_body": {}
+    },
+    {
+      "model_id": "provider/balanced",
+      "provider": "openai_compatible",
+      "provider_model": "REPLACE_WITH_PROVIDER_MODEL",
+      "base_url": "https://api.example.com/v1",
+      "api_key_env": "CUSTOM_LLM_API_KEY",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 8.0,
+      "prior_quality": 0.82,
+      "latency_ms": 900,
+      "timeout_seconds": 60,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "max_tokens_field": "max_tokens",
+      "response_format_json": true,
+      "extra_body": {}
+    },
+    {
+      "model_id": "provider/strong",
+      "provider": "openai_compatible",
+      "provider_model": "REPLACE_WITH_PROVIDER_MODEL",
+      "base_url": "https://api.example.com/v1",
+      "api_key_env": "CUSTOM_LLM_API_KEY",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 16.0,
+      "prior_quality": 0.90,
+      "latency_ms": 1500,
+      "timeout_seconds": 90,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "max_tokens_field": "max_tokens",
+      "response_format_json": true,
+      "extra_body": {}
+    }
+  ]
+}

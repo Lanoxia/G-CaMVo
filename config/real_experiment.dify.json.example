@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "seed": 17,
+  "api_key_file": "config/api_keys.env",
+  "pricing_verified": false,
+  "fixed_cheap_models": 2,
+  "dataset": {
+    "kind": "casie",
+    "path": "data/raw/casie/data",
+    "max_items": 5
+  },
+  "router": {
+    "embedding_dim": 64,
+    "confidence_threshold": 0.92,
+    "min_models": 2,
+    "warmup_rounds": 5,
+    "linucb_regularization": 1.0,
+    "exploration_alpha": 0.2,
+    "laplace_regularization": 1.0,
+    "confidence_method": "exact"
+  },
+  "graph": {
+    "regularization": 1.0,
+    "max_edge_weight": 2.0,
+    "max_total_neighbor_weight": 8.0
+  },
+  "ccamvo": {
+    "monte_carlo_samples": 4096,
+    "seed": 17
+  },
+  "trace": {
+    "risk_tolerance": 0.03,
+    "critical_risk_tolerance": 0.01,
+    "symmetric_reliability_prior": 0.68,
+    "reliability_prior_strength": 6.0,
+    "min_reliability_observations": 8,
+    "graph_strength": 0.8,
+    "min_transition_observations": 6.0,
+    "diversity_penalty": 0.45,
+    "abstain_when_risk_unmet": true
+  },
+  "formal": {
+    "calibration_fraction": 0.2,
+    "validation_fraction": 0.1,
+    "minimum_partition_items": 10,
+    "risk_grid": [0.2, 0.1, 0.05, 0.03, 0.02, 0.01],
+    "graph_regularization_grid": [0.0, 0.25, 0.5, 1.0, 2.0, 4.0],
+    "trace_graph_strength_grid": [0.0, 0.25, 0.5, 0.8, 1.2],
+    "noninferiority_margin_macro_f1": 0.01,
+    "noninferiority_margin_macro_recall": 0.01,
+    "noninferiority_margin_selective_risk": 0.02,
+    "max_abstention_rate": 0.05,
+    "bootstrap_iterations": 2000,
+    "order_stability_seeds": [101, 103, 107, 109, 113],
+    "prefetch_workers": 4,
+    "matrix_manifest_path": "artifacts/dify_casie_smoke/matrix_manifest.json"
+  },
+  "budget": {
+    "hard_limit_usd": 1.0,
+    "max_provider_calls": 40,
+    "max_transient_restarts": 12,
+    "transient_restart_backoff_seconds": 5.0,
+    "cache_dir": "artifacts/dify_casie_smoke/responses",
+    "ledger_path": "artifacts/dify_casie_smoke/budget.json",
+    "input_token_margin": 1.25
+  },
+  "models": [
+    {
+      "model_id": "dify/deepseek-v4-flash",
+      "provider": "dify_workflow",
+      "workflow_model": "cheap_a",
+      "base_url": "https://REPLACE_COMPANY_DIFY_API_BASE/v1",
+      "api_key_env": "DIFY_WORKFLOW_API_KEY",
+      "platform_user_env": "ADAMS_PLATFORM_USER",
+      "user_token_env": "ADAMS_USER_TOKEN",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.5,
+      "prior_quality": 0.70,
+      "latency_ms": 300,
+      "timeout_seconds": 100,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "output_key": "result",
+      "user": "g-camvo-casie"
+    },
+    {
+      "model_id": "dify/minimax-m3",
+      "provider": "dify_workflow",
+      "workflow_model": "cheap_b",
+      "base_url": "https://REPLACE_COMPANY_DIFY_API_BASE/v1",
+      "api_key_env": "DIFY_WORKFLOW_API_KEY",
+      "platform_user_env": "ADAMS_PLATFORM_USER",
+      "user_token_env": "ADAMS_USER_TOKEN",
+      "input_usd_per_million": 0.3,
+      "output_usd_per_million": 1.5,
+      "prior_quality": 0.76,
+      "latency_ms": 500,
+      "timeout_seconds": 100,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "output_key": "result",
+      "user": "g-camvo-casie"
+    },
+    {
+      "model_id": "dify/glm-5.2-fp8",
+      "provider": "dify_workflow",
+      "workflow_model": "balanced",
+      "base_url": "https://REPLACE_COMPANY_DIFY_API_BASE/v1",
+      "api_key_env": "DIFY_WORKFLOW_API_KEY",
+      "platform_user_env": "ADAMS_PLATFORM_USER",
+      "user_token_env": "ADAMS_USER_TOKEN",
+      "input_usd_per_million": 1.0,
+      "output_usd_per_million": 5.0,
+      "prior_quality": 0.84,
+      "latency_ms": 900,
+      "timeout_seconds": 100,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "output_key": "result",
+      "user": "g-camvo-casie"
+    },
+    {
+      "model_id": "dify/deepseek-v4-pro",
+      "provider": "dify_workflow",
+      "workflow_model": "strong",
+      "base_url": "https://REPLACE_COMPANY_DIFY_API_BASE/v1",
+      "api_key_env": "DIFY_WORKFLOW_API_KEY",
+      "platform_user_env": "ADAMS_PLATFORM_USER",
+      "user_token_env": "ADAMS_USER_TOKEN",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 15.0,
+      "prior_quality": 0.90,
+      "latency_ms": 1500,
+      "timeout_seconds": 100,
+      "max_retries": 0,
+      "max_output_tokens": 128,
+      "output_key": "result",
+      "user": "g-camvo-casie"
+    }
+  ]
+}

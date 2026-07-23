@@ -1,0 +1,9 @@
+{
+  "hard_limit_usd": 5.0,
+  "max_provider_calls": 500,
+  "cache_dir": "artifacts/responses",
+  "ledger_path": "artifacts/provider_budget.json",
+  "prompt_version": "casie-event-subtype-v1",
+  "max_output_tokens": 128,
+  "input_token_margin": 1.25
+}
