@@ -27,7 +27,7 @@ SHA-256: `2ee5c986b18f3d060822611547b9c0b22b2d1f5fad04111f1a429f6a6af3d13e`
 
 ### `Mordor_Atomic112_Tactic_Results_20260811.zip`
 
-The preregistered decision-level extension:
+The frozen decision-level extension:
 
 - 112 chronological test decisions from 32 official source groups;
 - source-group split and frozen test manifest;
@@ -37,6 +37,27 @@ The preregistered decision-level extension:
 - complete internal SHA-256 manifest.
 
 SHA-256: `4c05151f90e8e0ed558e4710bf616026fbd84e72f949060aaaa80d4db721bbb3`
+
+### `Mordor_Atomic112_Reproducibility_v2.zip`
+
+The self-contained audit and replay bundle for the Atomic112 extension:
+
+- all 171 frozen decision anchors and source-group-preserving calibration,
+  validation, and test partitions (29/30/112 decisions);
+- exact model-visible inputs and evaluator-only labels in separate directories;
+- five complete frozen response files (171 rows each; 855 response cells);
+- the separate compound-61 stress manifest and excluded-source audit;
+- frozen price snapshot, Enterprise ATT&CK 8.2 taxonomy, and upstream OTRF
+  commit/path/SHA-256 provenance;
+- CaMVo source code, package-local replay script, results, traces, tables, and
+  figures;
+- package-wide SHA-256 manifest and reproduction instructions.
+
+This is the package to use for independent Atomic112 auditing and replay. The
+smaller Atomic112 results archive above is retained as a convenient
+paper/professor-facing results package.
+
+SHA-256: `16ee1ba7098771b1721c60955dc1f51a22262b09169a1c648634d0621fc0050c`
 
 ## Atomic-112 headline result
 
