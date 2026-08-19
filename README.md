@@ -51,6 +51,20 @@ independently.
 These figures are aggregate results from frozen model outputs. Raw provider
 responses are intentionally not included.
 
+## Current OpTC provenance-stream result
+
+The frozen OpTC experiment processes 16,902,846 telemetry events into 3,002
+strictly chronological checkpoints and evaluates a complete five-model matrix
+of 15,010 schema-valid responses. The online-weighted full panel reaches 65.9%
+campaign-held-out balanced accuracy at a replay-policy cost of $74.03. CaMVo
+reaches 64.8%, matches the full panel on official-step recall (49/76), adjusted
+timeline score (35.0%), and transition F1 (14.0%), while reducing cost to
+$22.66 (69.4% saving; 3.01 models per checkpoint).
+
+The public protocol, aggregate results, uncertainty analyses, figures, offline
+analysis scripts, and compressed route trace are available in
+[`artifacts/optc/stream3002`](artifacts/optc/stream3002/README.md).
+
 ## Reproduce the algorithmic framework
 
 Python 3.10+:
@@ -70,14 +84,12 @@ provider through the generic interfaces in `src/camvo/llms/`.
 ## Research claim boundary
 
 CASIE exposes article/event order, not a full host-process-file-network
-provenance graph. The current evidence supports dependent-event routing and a
-graph-specific gain within CASIE. DARPA OpTC is the planned provenance-rich
-external validation.
-
-Because the public OpTC release is approximately one terabyte, the first
-experiment uses red-team-ground-truth-centered attack windows, affected hosts,
-one- to two-hop causal neighborhoods, and time-matched benign windows. Coverage
-is expanded only after a positive incident-cluster confidence interval.
+provenance graph. Mordor supplies official ATT&CK scenarios with reconstructed
+temporal context. OpTC supplies the provenance-rich main setting: all routing
+and cost results use 3,002 chronological checkpoints, while security quality is
+audited separately against official red-team steps/transitions and a
+campaign-held-out host-window benchmark. Results across these task types are
+not pooled into a single accuracy number.
 
 ## Repository map
 
@@ -89,6 +101,8 @@ docs/                      Method, protocol, result, and claim-boundary notes
 config/                    Credential-free configuration templates
 dify/                      Portable multi-model workflow template
 data/README.md             Dataset sources and leakage rules
+artifacts/mordor/          Frozen Mordor reproducibility releases
+artifacts/optc/stream3002/ Frozen OpTC protocol, results, figures, and route trace
 ```
 
 ## Data and confidentiality
@@ -106,4 +120,3 @@ The repository contains code and aggregate statistics only. It excludes:
 - CaMVo: https://proceedings.neurips.cc/paper_files/paper/2025/file/054e9f9a286671ababa3213d6e59c1c2-Paper-Conference.pdf
 - DARPA Transparent Computing: https://www.darpa.mil/research/programs/transparent-computing
 - OpTC data release: https://github.com/FiveDirections/OpTC-data
-
