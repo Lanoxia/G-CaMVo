@@ -1,0 +1,16 @@
+reference_method,comparator_method,metric,difference,ci_low,ci_high,statistically_distinguishable_at_95pct
+camvo_mordor_transfer,camvo_weighted_online_full_vote,accuracy,0.03864734299516903,-0.004854960928250057,0.08213557056423251,False
+camvo_mordor_transfer,camvo_weighted_online_full_vote,balanced_accuracy,-0.010880398671096358,-0.08897562021300177,0.065711370672671,False
+camvo_mordor_transfer,camvo_weighted_online_full_vote,f1,0.0015810276679841806,-0.14359858532272335,0.1452697372069873,False
+camvo_mordor_transfer,single::deepseek-v4-flash,accuracy,0.09178743961352653,0.03809523809523807,0.14492934782608696,True
+camvo_mordor_transfer,single::deepseek-v4-flash,balanced_accuracy,0.1235049833887043,0.028901952826585198,0.22336134419629194,True
+camvo_mordor_transfer,single::deepseek-v4-flash,f1,0.24281524926686215,0.04419969512195121,0.42936627640253133,True
+camvo_weighted_online_full_vote,single::deepseek-v4-flash,accuracy,0.0531400966183575,-0.01932367149758452,0.12621481808375007,False
+camvo_weighted_online_full_vote,single::deepseek-v4-flash,balanced_accuracy,0.13438538205980066,0.022632308619650394,0.25033188875359247,True
+camvo_weighted_online_full_vote,single::deepseek-v4-flash,f1,0.24123422159887797,0.0408406529058703,0.43632122391271705,True
+camvo_mordor_transfer,single::glm-5.2,accuracy,0.4057971014492754,0.30541871921182273,0.5048076923076923,True
+camvo_mordor_transfer,single::glm-5.2,balanced_accuracy,0.03936877076411971,-0.051756854095456196,0.1347514107387141,False
+camvo_mordor_transfer,single::glm-5.2,f1,0.09350649350649348,-0.10164353623569197,0.28820186918598334,False
+camvo_weighted_online_full_vote,single::glm-5.2,accuracy,0.36714975845410636,0.27272727272727276,0.46342347119123367,True
+camvo_weighted_online_full_vote,single::glm-5.2,balanced_accuracy,0.05024916943521607,-0.040756016819936375,0.15402658045977002,False
+camvo_weighted_online_full_vote,single::glm-5.2,f1,0.0919254658385093,-0.060105859299125465,0.2581123970595411,False
