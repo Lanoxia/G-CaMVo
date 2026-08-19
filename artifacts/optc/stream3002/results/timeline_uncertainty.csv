@@ -1,0 +1,10 @@
+method,coverage_adjusted_timeline,campaign_cluster_bootstrap_low,campaign_cluster_bootstrap_high,top_level_campaigns
+camvo_mordor_transfer,0.3501513622603431,0.0,0.5295566502463054,3
+camvo_weighted_online_full_vote,0.3501513622603431,0.0,0.5295566502463054,3
+online_consensus_weighted_full_vote,0.3501513622603431,0.0,0.5295566502463054,3
+single::deepseek-v4-flash,0.33198789101917253,0.0,0.5295566502463054,3
+single::deepseek-v4-pro,0.3420787083753784,0.05,0.49507389162561577,3
+single::gemini-3.5-flash-lite,0.3229061553985873,0.025,0.5,3
+single::glm-5.2,0.3410696266397578,0.0,0.5295566502463054,3
+single::minimax-m3,0.3501513622603431,0.0,0.5295566502463054,3
+uniform_full_vote,0.3501513622603431,0.0,0.5295566502463054,3

@@ -1,0 +1,20 @@
+{
+  "bootstrap_iterations": 10000,
+  "bootstrap_seed": 20260819,
+  "claim_boundary": "Wilson intervals treat official steps as finite evaluation units; campaign-stratified bootstrap is a sensitivity analysis, not evidence of 76 independent campaigns.",
+  "files": [
+    "official_step_uncertainty.csv",
+    "official_transition_uncertainty.csv",
+    "timeline_uncertainty.csv",
+    "paired_reconstruction_differences.csv",
+    "window_main_table.csv",
+    "window_paired_differences.csv",
+    "reconstruction_main_table.csv",
+    "reconstruction_by_campaign.csv"
+  ],
+  "provider_calls": 0,
+  "schema_version": 1,
+  "state": "complete",
+  "strongest_single_official_step_recall": "single::deepseek-v4-pro",
+  "top_level_campaigns": 3
+}

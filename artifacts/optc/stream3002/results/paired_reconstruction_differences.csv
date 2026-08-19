@@ -1,0 +1,10 @@
+endpoint,candidate,reference,difference,ci_low,ci_high,probability_candidate_better,statistically_distinguishable_at_95pct
+official_step_recall,camvo_mordor_transfer,camvo_weighted_online_full_vote,0.0,0.0,0.0,0.0,False
+official_step_recall,camvo_mordor_transfer,single::deepseek-v4-pro,-0.02631578947368421,-0.125,0.0,0.0,False
+official_step_recall,camvo_weighted_online_full_vote,single::deepseek-v4-pro,-0.02631578947368421,-0.125,0.0,0.0,False
+coverage_adjusted_timeline,camvo_mordor_transfer,camvo_weighted_online_full_vote,0.0,0.0,0.0,0.0,False
+coverage_adjusted_timeline,camvo_mordor_transfer,single::deepseek-v4-pro,0.008072653884964698,-0.05,0.03448275862068961,0.713,False
+coverage_adjusted_timeline,camvo_weighted_online_full_vote,single::deepseek-v4-pro,0.008072653884964698,-0.05,0.03448275862068961,0.713,False
+official_transition_f1,camvo_mordor_transfer,camvo_weighted_online_full_vote,0.0,0.0,0.0,0.0,False
+official_transition_f1,camvo_mordor_transfer,single::deepseek-v4-pro,0.04197390811117413,-0.00735294117647059,0.11029411764705882,0.9633,False
+official_transition_f1,camvo_weighted_online_full_vote,single::deepseek-v4-pro,0.04197390811117413,-0.00735294117647059,0.11029411764705882,0.9633,False
