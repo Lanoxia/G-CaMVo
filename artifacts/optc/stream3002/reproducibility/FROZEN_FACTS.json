@@ -1,0 +1,104 @@
+{
+  "state": "complete",
+  "provider_calls": 0,
+  "optc": {
+    "stream_checkpoints": 3002,
+    "strict_valid_responses": 15010,
+    "official_steps_total": 101,
+    "official_steps_observable": 76,
+    "official_transitions": 73,
+    "auxiliary_windows": 207
+  },
+  "separation_rule": "All-campaign OpTC is the main analysis; Day-3 holdout is a policy-ablation sensitivity analysis.",
+  "cross_dataset_rows": [
+    {
+      "dataset": "CASIE",
+      "evaluation_unit": "7,985 events / 977 documents / 5 grouped folds",
+      "primary_quality_metric": "Macro-F1",
+      "strongest_single": 0.9185,
+      "online_full": 0.9143,
+      "camvo": 0.9075,
+      "best_graph_aware_route": 0.9258,
+      "camvo_cost_usd": 23.9771,
+      "online_full_cost_usd": 49.4077,
+      "camvo_saving_vs_full": 0.5147092457248567,
+      "camvo_average_models": 2.439,
+      "pool_size": 4,
+      "interpretation": "Event/argument extraction; graph-aware extension exceeds the strongest single model."
+    },
+    {
+      "dataset": "Mordor Atomic112",
+      "evaluation_unit": "112 chronological decisions / 32 source scenarios",
+      "primary_quality_metric": "Top-1 tactic accuracy",
+      "strongest_single": 0.7053571428571429,
+      "online_full": 0.7232142857142857,
+      "camvo": 0.7142857142857143,
+      "best_graph_aware_route": "",
+      "camvo_cost_usd": 0.6438442266666666,
+      "online_full_cost_usd": 1.476108791111111,
+      "camvo_saving_vs_full": 0.563823323494994,
+      "camvo_average_models": 3.3214285714285716,
+      "pool_size": 5,
+      "interpretation": "Official ATT&CK tactic decisions with strictly past-only stream context."
+    },
+    {
+      "dataset": "OpTC",
+      "evaluation_unit": "3,002 checkpoints; 76 official steps; 207 auxiliary windows",
+      "primary_quality_metric": "Auxiliary balanced accuracy",
+      "strongest_single": 0.6088039867109634,
+      "online_full": 0.6590531561461794,
+      "camvo": 0.6481727574750831,
+      "best_graph_aware_route": "",
+      "camvo_cost_usd": 22.664695667412065,
+      "online_full_cost_usd": 74.03188685051482,
+      "camvo_saving_vs_full": 0.6938522489211085,
+      "camvo_average_models": 3.006662225183211,
+      "pool_size": 5,
+      "interpretation": "CaMVo and online full also tie on step recall, adjusted timeline, and transition F1."
+    }
+  ],
+  "schema_gate": {
+    "strict_valid_cells": 15010,
+    "expected_cells": 15010,
+    "format_gate_passed": true,
+    "per_model": [
+      {
+        "model": "deepseek-v4-flash",
+        "strict_valid_responses": 3002,
+        "mean_latency_seconds": 8.073157297897017,
+        "median_latency_seconds": 7.094534729010775,
+        "p95_latency_seconds": 14.472417825290176
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "strict_valid_responses": 3002,
+        "mean_latency_seconds": 14.720103651421326,
+        "median_latency_seconds": 13.962791937505244,
+        "p95_latency_seconds": 24.717554845515405
+      },
+      {
+        "model": "gemini-3.5-flash-lite",
+        "strict_valid_responses": 3002,
+        "mean_latency_seconds": 6.304025568884467,
+        "median_latency_seconds": 3.750632625480648,
+        "p95_latency_seconds": 24.164680939896783
+      },
+      {
+        "model": "glm-5.2",
+        "strict_valid_responses": 3002,
+        "mean_latency_seconds": 17.329077418496805,
+        "median_latency_seconds": 14.245908729513758,
+        "p95_latency_seconds": 40.74998091519956
+      },
+      {
+        "model": "minimax-m3",
+        "strict_valid_responses": 3002,
+        "mean_latency_seconds": 17.91112740386383,
+        "median_latency_seconds": 14.317613500490552,
+        "p95_latency_seconds": 41.34618368093504
+      }
+    ],
+    "latency_definition": "Recorded-response parallel latency proxy: maximum latency among models selected for a checkpoint.",
+    "serial_counterfactual_definition": "Sum of selected recorded response latencies; reported only as a counterfactual sequential upper proxy."
+  }
+}
