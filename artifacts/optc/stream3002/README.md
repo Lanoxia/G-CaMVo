@@ -37,6 +37,7 @@ CaMVo selects its subset before current responses are observed.
 
 ```text
 figures/          Paper-ready PDF figures and PNG previews
+construction/     Raw-telemetry-to-checkpoint code, manifests, and frozen prompt
 protocol/         Frozen task definition, denominators, leakage rules, and claims
 results/          Main tables, uncertainty analyses, ablations, and schema audit
 reproducibility/  Frozen facts, route trace, and compact reproducibility record
@@ -65,11 +66,17 @@ figures.
 
 Start with:
 
+- `DATASET_CONSTRUCTION.md`
 - `protocol/OPTC_PPT_ALIGNED_FINAL_PROTOCOL_20260819.md`
 - `results/optc_main_results.csv`
 - `results/schema_gate.json`
 - `figures/01_OpTC_PPT_Aligned_Accuracy_Cost_Table.pdf`
 - `figures/02_OpTC_PPT_Aligned_Online_Trajectory.pdf`
+
+To rebuild the 3,002 checkpoint definitions from the public OpTC archives,
+follow `DATASET_CONSTRUCTION.md`.  The released construction directory contains
+the exact 23-file inventory and hashes, campaign scope, deterministic E2--E5
+scripts, frozen prompt, and a zero-provider-call rebuild driver.
 
 ## Claim boundary
 

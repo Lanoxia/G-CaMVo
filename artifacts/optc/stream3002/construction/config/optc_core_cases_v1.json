@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "reference_utc_offset_minutes": -240,
+  "cases": [
+    {
+      "case_id": "optc-day1-plain-powershell-empire",
+      "day": "day1",
+      "title": "Day 1 - Plain PowerShell Empire",
+      "start_local": "2019-09-23T11:20:00",
+      "end_local": "2019-09-23T15:35:00",
+      "core_hosts": ["SYSCLIENT0201", "SYSCLIENT0402", "SYSCLIENT0660"],
+      "download_buckets": ["AIA-201-225", "AIA-401-425", "AIA-651-675"],
+      "deferred_entities": ["DC1", "14 lateral-spread workstations"]
+    },
+    {
+      "case_id": "optc-day2-custom-powershell-empire",
+      "day": "day2",
+      "title": "Day 2 - Custom PowerShell Empire",
+      "start_local": "2019-09-24T10:25:00",
+      "end_local": "2019-09-24T15:35:00",
+      "core_hosts": ["SYSCLIENT0005", "SYSCLIENT0501", "SYSCLIENT0811", "SYSCLIENT0974"],
+      "download_buckets": ["AIA-1-25", "AIA-501-525", "AIA-801-825", "AIA-951-975"],
+      "deferred_entities": ["DC1", "six overnight lateral-spread workstations"]
+    },
+    {
+      "case_id": "optc-day3-malicious-upgrade",
+      "day": "day3",
+      "title": "Day 3 - Malicious Upgrade",
+      "start_local": "2019-09-25T10:25:00",
+      "end_local": "2019-09-25T14:30:00",
+      "core_hosts": ["SYSCLIENT0051", "SYSCLIENT0351"],
+      "download_buckets": ["AIA-51-75", "AIA-351-375"],
+      "deferred_entities": []
+    }
+  ],
+  "benign_host_by_bucket": {
+    "AIA-51-75": "SYSCLIENT0051",
+    "AIA-201-225": "SYSCLIENT0201",
+    "AIA-351-375": "SYSCLIENT0351",
+    "AIA-401-425": "SYSCLIENT0402",
+    "AIA-501-525": "SYSCLIENT0501",
+    "AIA-651-675": "SYSCLIENT0660",
+    "AIA-801-825": "SYSCLIENT0811",
+    "AIA-951-975": "SYSCLIENT0974"
+  },
+  "sources": {
+    "ground_truth": "data/raw/optc-metadata/OpTCRedTeamGroundTruth.pdf",
+    "positive_event_ids": "data/raw/optc-labels/labels.csv"
+  }
+}
