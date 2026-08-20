@@ -61,8 +61,8 @@ reaches 64.8%, matches the full panel on official-step recall (49/76), adjusted
 timeline score (35.0%), and transition F1 (14.0%), while reducing cost to
 $22.66 (69.4% saving; 3.01 models per checkpoint).
 
-The public protocol, aggregate results, uncertainty analyses, figures, offline
-analysis scripts, and compressed route trace are available in
+The public construction recipe, frozen protocol, aggregate results,
+uncertainty analyses, figures, offline analysis scripts, and compressed route trace are available in
 [`artifacts/optc/stream3002`](artifacts/optc/stream3002/README.md).
 
 ## Reproduce the algorithmic framework
